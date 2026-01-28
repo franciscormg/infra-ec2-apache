@@ -13,7 +13,13 @@ pipeline {
     stages {
         stage('Terraform Init') {
             steps {
-                sh 'terraform init'
+                sh '''
+			docker run --rm \
+			-v $PWD:/workspace \
+			-v /var/lib/jenkins/.aws:/root/.aws \
+			-w /workspace \
+			hashicorp/terraform:1.6 init
+		'''
             }
         }
 
