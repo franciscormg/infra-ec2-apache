@@ -37,6 +37,10 @@ resource "aws_security_group" "ec2_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  tags = {
+    Name = "sg-ec2-apache-pancho"    
+  }
 }
 
 resource "aws_instance" "apache_ec2" {
