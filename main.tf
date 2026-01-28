@@ -12,7 +12,7 @@ provider "aws" {
 }
 
 resource "aws_security_group" "ec2_sg" {
-  name        = "sg-ec2-apache-pancho"
+  name        = "ec2-apache-pancho"
   description = "Allow HTTP and SSH"
 
   ingress {
